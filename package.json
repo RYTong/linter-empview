@@ -1,0 +1,50 @@
+{
+  "name": "linter-empview",
+  "main": "./lib/linter-empview",
+  "version": "0.0.0",
+  "description": "Lint EMP View on the fly.",
+  "keywords": [
+      "emp",
+      "lint",
+      "emplint"
+  ],
+  "activationCommands": {
+    "atom-workspace": "linter-empview:toggle"
+  },
+  "repository": "https://github.com/atom/linter-empview",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+
+  "package-deps": [
+    "linter"
+  ],
+
+  "dependencies": {
+      "sax": "^1.1.4"
+  },
+
+  "configSchema": {
+    "enabledScopes": {
+      "description": "List of scopes to run EMP Lint on, run `Editor: Log Cursor Scope` to determine the scopes for a file.",
+      "type": "array",
+      "default": [
+        "source.emp"
+
+      ],
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+
+  "providedServices": {
+    "linter": {
+      "versions": {
+        "2.0.0": "provideLinter"
+      }
+    }
+  }
+
+}
