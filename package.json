@@ -8,9 +8,6 @@
       "lint",
       "emplint"
   ],
-  "activationCommands": {
-    "atom-workspace": "linter-empview:toggle"
-  },
   "repository": "https://github.com/atom/linter-empview",
   "license": "MIT",
   "engines": {
@@ -22,6 +19,7 @@
   ],
 
   "dependencies": {
+      "atom-package-deps":"*",
       "sax": "^1.1.4"
   },
 
