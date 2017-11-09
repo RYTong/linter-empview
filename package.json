@@ -8,22 +8,18 @@
       "lint",
       "emplint"
   ],
-  "repository": "https://github.com/RYTong/linter-empview.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RYTong/linter-empview.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RYTong/linter-empview/issues"
+  },
+
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
-
-  "maintainers": [
-      {
-        "name": "Ju Chao",
-        "email": "ju.chao@rytong.com"
-      }
-    ],
-    "bugs": {
-      "url": "https://github.com/RYTong/linter-empview/issues"
-    },
-    "author": "Ju chao <cqjcrom@gmail.com>",
 
   "package-deps": [
     "linter"
