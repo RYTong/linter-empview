@@ -8,7 +8,7 @@
       "lint",
       "emplint"
   ],
-  "repository": "https://github.com/RYTong/linter-empview",
+  "repository": "https://github.com/RYTong/linter-empview.git",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
