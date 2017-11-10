@@ -4,9 +4,7 @@
   "version": "0.1.0",
   "description": "Lint EMP View on the fly",
   "keywords": [],
-  "activationCommands": {
-    "atom-workspace": "linter-empview:toggle"
-  },
+
   "repository": "https://github.com/RYTong/linter-empview",
   "license": "MIT",
   "engines": {
