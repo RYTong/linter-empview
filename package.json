@@ -1,7 +1,7 @@
 {
   "name": "linter-empview",
   "main": "./lib/linter-empview",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Lint EMP View on the fly",
   "keywords": [],
   "repository": "https://github.com/RYTong/linter-empview",
