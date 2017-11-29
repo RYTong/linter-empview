@@ -2,7 +2,7 @@
   "name": "linter-empview",
   "main": "./lib/linter-empview",
   "version": "0.1.3",
-  "description": "Lint EMP View on the fly",
+  "description": "EMP View 语法校验(在保存时);",
   "keywords": [],
   "repository": "https://github.com/RYTong/linter-empview",
   "license": "MIT",
