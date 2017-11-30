@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "atom-package-deps": "*",
-    "sax": "^1.1.4"
+    "sax": "^1.1.4",
+    "luaparse": "*"
   },
   "providedServices": {
     "linter": {

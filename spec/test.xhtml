@@ -1,0 +1,110 @@
+
+#{local test = 1 }#
+#{
+    local test =  "123\nasd"
+    }#
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+#{
+    this = ert.channel:get_page("account_query","TAC4001");
+    local data = this:get_data();
+    this.request_list={}
+    this.request_list = this.context;
+    local sys_table = json:objectFromJSON(data);
+    this.json = sys_table;
+    this.empNo = sys_table["RSP_BODY"]["empNo"];
+    this.comName = sys_table["RSP_BODY"]["comName"];
+    this.dctItems = sys_table["RSP_BODY"]["dctItems"];
+    this.payItems = sys_table["RSP_BODY"]["payItems"];
+    this.empName = this.request_list["name"];
+    this.paySum = this.request_list["amount"];
+    this.sendDate =this.request_list["sendDate"];
+
+}#
+
+<content>
+  <head>
+    <link ref="account_query/css/TAC4001.css" type="text/css"/>
+    <script type="text/x-lua" src="cmm.lua"></script>
+    <script type="text/x-lua" src="account_query/lua/TAC4001.lua"></script>
+    <script type="text/x-lua" src="lua/ert_bindings.lua"></script>
+  </head>
+  <body class="body_EEEEEE">
+  <!--一般界面header -->
+  #{
+      local title_content = cmm_unit_fun.skip_lib:include_header_com({page_name="更新页面名称"});
+  }#
+  #{= title_content}#
+  <!--弹出选择菜单div-->
+  #{= cmm_unit_fun.skip_lib:multifunctional_alert({})}#
+
+  <div class="div_bg_w320" valign="middle" align="center" border="0">
+      <div class="div_w300_h30_f14b" border="0" valign="middle" align="right">
+          <label class="cmm_ui_l0,cmm_ui_f14g">员工姓名</label>
+          <label class="cmm_ui_f14">#{=this.empName}#</label>
+      </div>
+      <div class="div_w300_h30_f14b" border="0" valign="middle" align="right">
+          <label class="cmm_ui_l0,cmm_ui_f14g">员工编号</label>
+          <label class="cmm_ui_f14" >#{=this.empNo}#</label>
+      </div>
+      <div class="div_w300_h30_f14b" border="0" valign="middle" align="right">
+          <label class="cmm_ui_l0,cmm_ui_f14g">单位名称</label>
+          <label class="cmm_ui_f14" >#{=this.comName}#</label>
+      </div>
+      <div class="div_w300_h30_f14b" border="0" valign="middle" align="right">
+          <label class="cmm_ui_l0,cmm_ui_f14g">实际合计（元）</label>
+          <label class="cmm_ui_f14" >#{=this.paySum}#</label>
+      </div>
+      <div class="div_w300_h30_f14b" border="0" valign="middle" align="right">
+          <label class="cmm_ui_l0,cmm_ui_f14g">发放日期</label>
+          <label class="cmm_ui_f14" >#{=this.sendDate}#</label>
+      </div>
+  </div>
+
+  <div class="div_l10" valign="middle" border="0">
+    <div border="0" class="cmm_ui_div_h14"></div>
+    <label >工资清单</label>
+    <div border="0" class="div_blank_top"></div>
+  </div>
+
+  <div class="div_bg_w320" valign="middle" align="center" border="0">
+      #{ for key,tb1  in pairs(this.payItems) do}#
+        #{ if tb1["amount"] == "" then}#
+        #{ tb1["amount"] = 0.00}#
+        <div class="div_w300_h30_f14b" border="0" valign="middle" align="right">
+            <label class="cmm_ui_l0,cmm_ui_f14g">#{=tb1["name"]}#</label>
+            <label class="cmm_ui_f14">#{=cmm_unit_fun.format_lib:number_to_money("",tb1["amount"])}#</label>
+        </div>
+      #{else}#
+      <div class="div_w300_h30_f14b" border="0" valign="middle" align="right">
+          <label class="cmm_ui_l0,cmm_ui_f14g">#{=tb1["name"]}#</label>
+          <label class="cmm_ui_f14">#{=cmm_unit_fun.format_lib:number_to_money("",tb1["amount"])}#</label>
+      </div>
+      #{end}#
+    #{end}#
+  </div>
+  <div class="div_h30">
+
+  </div>
+  <div class="div_bg_w320" valign="middle" align="center" border="0">
+      #{ for key,tb2  in pairs(this.dctItems) do}#
+        #{ if tb2["amount"] == "" then}#
+        #{ tb2["amount"] = 0.00}#
+        <div class="div_w300_h30_f14b" border="0" valign="middle" align="right">
+            <label class="cmm_ui_l0,cmm_ui_f14g">#{=tb2["name"]}#</label>
+            <label class="cmm_ui_f14">#{=cmm_unit_fun.format_lib:number_to_money("",tb2["amount"])}#</label>
+        </div>
+      #{else}#
+      <div class="div_w300_h30_f14b" border="0" valign="middle" align="right">
+          <label class="cmm_ui_l0,cmm_ui_f14g">#{=tb2["name"]}#</label>
+          <label class="cmm_ui_f14">#{=cmm_unit_fun.format_lib:number_to_money("",tb2["amount"])}#</label>
+      </div>
+      #{end}#
+    #{end}#
+  </div>
+
+  <div class="cmm_bind_alpha0_div,cmm_ui_w320_alpha0"></div>
+  </body>
+</content>
