@@ -1,7 +1,7 @@
 {
   "name": "linter-empview",
   "main": "./lib/linter-empview",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "EMP View 语法校验(在保存时);",
   "keywords": [],
   "repository": "https://github.com/RYTong/linter-empview",
