@@ -3,12 +3,22 @@
   "main": "./lib/linter-empview",
   "version": "0.1.4",
   "description": "EMP View 语法校验(在保存时);",
-  "keywords": [],
+  "keywords": ["EMP", "EMPView", "lint", "slt2", "RYTong"],
   "repository": "https://github.com/RYTong/linter-empview",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
+
+  "configSchema":{
+      "enableLintEmbeddedLua": {
+          "title": "校验内嵌 Lua 语法",
+          "description": "保存 EMPView 修改时, 校验内嵌 Lua 语法. 默认为关闭状态,因为我们推荐开发时, 页面脚本为外联文件. 如果需要,请打开. 请注意,理论上, 打开后, 页面校验速度会有所下降.",
+          "type": "boolean",
+          "default":false
+      }
+  },
+
   "dependencies": {
     "atom-package-deps": "*",
     "sax": "^1.1.4",
