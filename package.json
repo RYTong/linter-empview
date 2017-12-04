@@ -26,7 +26,8 @@
   "dependencies": {
     "atom-package-deps": "*",
     "sax": "^1.1.4",
-    "luaparse": "*"
+    "luaparse": "*",
+    "jquery": "*"
   },
   "providedServices": {
     "linter": {
