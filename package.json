@@ -1,7 +1,7 @@
 {
   "name": "linter-empview",
   "main": "./lib/linter-empview",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "EMP View 语法校验(在保存时);",
   "keywords": [
     "EMP",
